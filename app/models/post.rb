@@ -1,8 +1,11 @@
 class Post < ActiveRecord::Base
 
   belongs_to :author
-  validate :is_title_case 
+  validate :is_title_case
 
+  # New Code!!
+  before_save :make_title_case
+  
   private
 
   def is_title_case
